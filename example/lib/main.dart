@@ -3,9 +3,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_bloc_monitor/flutter_bloc_monitor.dart';
 
 import 'bloc/blocs.dart';
+import 'bloc/red/red_bloc.dart';
 
 void main() {
-  BlocSupervisor.delegate = FlutterBlocMonitorDelegate();
+  BlocSupervisor.delegate = FlutterBlocMonitorDelegate(
+    onEventFunc: (bloc, event) => print(event),
+    onTransitionFunc: (bloc, transition) => print(transition),
+    onErrorFunc: (bloc, error, stacktrace) => print(error),
+  );
   runApp(MyApp());
 }
 
@@ -13,17 +18,18 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         body: MultiBlocProvider(
           providers: [
-            BlocProvider<Bloc1Bloc>(
-              create: (_) => Bloc1Bloc(),
+            BlocProvider<RedBloc>(
+              create: (_) => RedBloc(),
             ),
-            BlocProvider<Bloc2Bloc>(
-              create: (_) => Bloc2Bloc(),
+            BlocProvider<BlueBloc>(
+              create: (_) => BlueBloc(),
             ),
-            BlocProvider<Bloc3Bloc>(
-              create: (_) => Bloc3Bloc(),
+            BlocProvider<GreenBloc>(
+              create: (_) => GreenBloc(),
             ),
           ],
           child: SampleWidget(),
@@ -40,47 +46,67 @@ class SampleWidget extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: <Widget>[
-            RaisedButton(
-              color: Theme.of(context).primaryColor,
-              child: Text('See Bloc Monitor Page'),
-              onPressed: () => Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (_) => FlutterBlocMonitorPage(),
-                ),
-              ),
-            ),
-            BlocBuilder<Bloc1Bloc, Bloc1State>(
-              builder: (_, state) => Expanded(
-                child: Container(
-                  child: Center(
-                    child: RaisedButton(
-                      child: Text('Event Bloc1'),
-                      onPressed: () => context.bloc<Bloc1Bloc>().add(Event1()),
+            BlocBuilder<RedBloc, RedState>(
+              builder: (_, state) => Container(
+                height: 100,
+                child: Center(
+                  child: RaisedButton(
+                    child: Text(
+                      'Add RedBloc Event',
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
                     ),
+                    onPressed: () => context.bloc<RedBloc>().add(RedEvent1()),
+                    color: Colors.red,
                   ),
                 ),
               ),
             ),
-            BlocBuilder<Bloc2Bloc, Bloc2State>(
-              builder: (_, state) => Expanded(
-                child: Container(
-                  child: Center(
-                    child: RaisedButton(
-                      child: Text('Event Bloc2'),
-                      onPressed: () => context.bloc<Bloc2Bloc>().add(Event2()),
+            BlocBuilder<BlueBloc, BlueState>(
+              builder: (_, state) => Container(
+                height: 100,
+                child: Center(
+                  child: RaisedButton(
+                    child: Text(
+                      'Add BlueBloc Event',
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
                     ),
+                    onPressed: () => context.bloc<BlueBloc>().add(BlueEvent1()),
+                    color: Colors.blue,
                   ),
                 ),
               ),
             ),
-            BlocBuilder<Bloc3Bloc, Bloc3State>(
-              builder: (_, state) => Expanded(
-                child: Container(
-                  child: Center(
-                    child: RaisedButton(
-                      child: Text('Event Bloc3'),
-                      onPressed: () => context.bloc<Bloc3Bloc>().add(Event3()),
+            BlocBuilder<GreenBloc, GreenState>(
+              builder: (_, state) => Container(
+                height: 100,
+                child: Center(
+                  child: RaisedButton(
+                    child: Text(
+                      'Add GreenBloc Event',
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
                     ),
+                    onPressed: () =>
+                        context.bloc<GreenBloc>().add(GreenEvent1()),
+                    color: Colors.green,
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(height: 30),
+            Container(
+              height: 100,
+              child: RaisedButton(
+                color: Theme.of(context).primaryColor,
+                child: Text('See Bloc Monitor Page'),
+                onPressed: () => Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (_) => FlutterBlocMonitorPage(),
                   ),
                 ),
               ),
