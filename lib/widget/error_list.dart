@@ -12,7 +12,7 @@ class ErrorsList extends StatelessWidget {
       itemBuilder: (_, i) => ListTile(
         title: Text('${listErrors[i].bloc}'),
         subtitle:
-        Text('${listErrors[i].timestamp.toString().substring(0, 19)}'),
+            Text('${listErrors[i].timestamp.toString().substring(0, 19)}'),
         trailing: InkWell(
           onTap: () {
             showDialog(

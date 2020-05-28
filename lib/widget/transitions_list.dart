@@ -10,8 +10,10 @@ class TransitionsList extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView.builder(
       itemBuilder: (_, i) => ListTile(
-        title: Text('${listTransitions[i].bloc}: ${listTransitions[i].transition.currentState.runtimeType} -> ${listTransitions[i].transition.nextState.runtimeType}'),
-        subtitle: Text('${listTransitions[i].timestamp.toString().substring(0, 19)}'),
+        title: Text(
+            '${listTransitions[i].bloc}: ${listTransitions[i].transition.currentState.runtimeType} -> ${listTransitions[i].transition.nextState.runtimeType}'),
+        subtitle:
+            Text('${listTransitions[i].timestamp.toString().substring(0, 19)}'),
         dense: true,
       ),
       itemCount: listTransitions.length,

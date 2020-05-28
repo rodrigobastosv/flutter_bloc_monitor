@@ -12,7 +12,7 @@ class EventsList extends StatelessWidget {
       itemBuilder: (_, i) => ListTile(
         title: Text('${listEvents[i].bloc}: ${listEvents[i].event}'),
         subtitle:
-        Text('${listEvents[i].timestamp.toString().substring(0, 19)}'),
+            Text('${listEvents[i].timestamp.toString().substring(0, 19)}'),
       ),
       itemCount: listEvents.length,
     );
