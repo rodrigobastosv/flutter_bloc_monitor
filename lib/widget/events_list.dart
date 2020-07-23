@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc_monitor/model/event_info.dart';
 
+///Widget that shows the list of events
 class EventsList extends StatelessWidget {
   EventsList(this.listEvents);
 

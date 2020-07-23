@@ -1,3 +1,7 @@
+## [1.0.3+1]
+
+Impoving documentation
+
 ## [1.0.3]
 
 Fixing error on delegate

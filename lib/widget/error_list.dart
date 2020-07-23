@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc_monitor/model/error_info.dart';
 
+///Widget that shows the list of errors
 class ErrorsList extends StatelessWidget {
   ErrorsList(this.listErrors);
 

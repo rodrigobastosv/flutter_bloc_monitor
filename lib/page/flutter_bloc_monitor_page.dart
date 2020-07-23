@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import '../flutter_bloc_monitor.dart';
 import '../widget/widgets.dart';
 
+///Page to visualize all the info
 class FlutterBlocMonitorPage extends StatefulWidget {
   @override
   _FlutterBlocMonitorPageState createState() => _FlutterBlocMonitorPageState();

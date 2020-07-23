@@ -4,6 +4,8 @@ import 'package:flutter_bloc_monitor/model/transition_info.dart';
 
 import 'model/event_info.dart';
 
+///Delegate that handles all the storing of the user bloc events, transitions
+///and errors
 class FlutterBlocMonitorDelegate extends BlocObserver {
   FlutterBlocMonitorDelegate(
       {this.onErrorFunc, this.onEventFunc, this.onTransitionFunc});
@@ -12,8 +14,13 @@ class FlutterBlocMonitorDelegate extends BlocObserver {
   static final List<TransitionInfo> transitions = [];
   static final List<ErrorInfo> errors = [];
 
+  ///Callback to be executed when error occurs
   final Function(Bloc bloc, Object error, StackTrace stackTrace) onErrorFunc;
+
+  ///Callback to be executed when event occurs
   final Function(Bloc bloc, Object event) onEventFunc;
+
+  ///Callback to be executed when transition occurs
   final Function(Bloc bloc, Transition transition) onTransitionFunc;
 
   @override

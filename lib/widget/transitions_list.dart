@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc_monitor/model/transition_info.dart';
 
+///Widget that shows the list of transitions
 class TransitionsList extends StatelessWidget {
   TransitionsList(this.listTransitions);
 
