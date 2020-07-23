@@ -1,6 +1,6 @@
 name: flutter_bloc_monitor
 description: Flutter bloc monitor is as the name says, a monitor for the great flutter_bloc library. You can easyli monitor all your blocs activities in an easy way.
-version: 1.0.0+1
+version: 1.0.3
 homepage: https://github.com/rodrigobastosv/flutter_bloc_monitor
 
 environment:
@@ -9,8 +9,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_bloc: ^4.0.0
-  convex_bottom_bar: ^2.2.0
+  flutter_bloc: ^6.0.1
+  convex_bottom_bar: ^2.3.0
 
 dev_dependencies:
   flutter_test:

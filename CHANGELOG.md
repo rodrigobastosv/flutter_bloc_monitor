@@ -1,3 +1,15 @@
+## [1.0.3]
+
+Fixing error on delegate
+
+## [1.0.2]
+
+Updating dependencies and adapting sample to use bloc 6
+
+## [1.0.1]
+
+Updating dependencies and adapting sample to use bloc 5
+
 ## [1.0.0+1]
 
 Adding health suggestions

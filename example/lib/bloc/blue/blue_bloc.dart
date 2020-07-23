@@ -7,8 +7,7 @@ part 'blue_event.dart';
 part 'blue_state.dart';
 
 class BlueBloc extends Bloc<BlueEvent, BlueState> {
-  @override
-  BlueState get initialState => InitialBlueState();
+  BlueBloc() : super(InitialBlueState());
 
   @override
   Stream<BlueState> mapEventToState(BlueEvent event) async* {

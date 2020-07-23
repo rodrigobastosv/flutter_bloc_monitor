@@ -6,7 +6,7 @@ import 'bloc/blocs.dart';
 import 'bloc/red/red_bloc.dart';
 
 void main() {
-  BlocSupervisor.delegate = FlutterBlocMonitorDelegate(
+  Bloc.observer = FlutterBlocMonitorDelegate(
     onEventFunc: (bloc, event) => print(event),
     onTransitionFunc: (bloc, transition) => print(transition),
     onErrorFunc: (bloc, error, stacktrace) => print(error),

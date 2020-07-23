@@ -7,8 +7,7 @@ part 'green_event.dart';
 part 'green_state.dart';
 
 class GreenBloc extends Bloc<GreenEvent, GreenState> {
-  @override
-  GreenState get initialState => InitialGreenState();
+  GreenBloc() : super(InitialGreenState());
 
   @override
   Stream<GreenState> mapEventToState(GreenEvent event) async* {

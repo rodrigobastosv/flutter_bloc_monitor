@@ -4,7 +4,7 @@ import 'package:flutter_bloc_monitor/model/transition_info.dart';
 
 import 'model/event_info.dart';
 
-class FlutterBlocMonitorDelegate extends BlocDelegate {
+class FlutterBlocMonitorDelegate extends BlocObserver {
   FlutterBlocMonitorDelegate(
       {this.onErrorFunc, this.onEventFunc, this.onTransitionFunc});
 
@@ -17,7 +17,7 @@ class FlutterBlocMonitorDelegate extends BlocDelegate {
   final Function(Bloc bloc, Transition transition) onTransitionFunc;
 
   @override
-  void onError(Bloc bloc, Object error, StackTrace stackTrace) {
+  void onError(Cubit bloc, Object error, StackTrace stackTrace) {
     super.onError(bloc, error, stackTrace);
     if (onErrorFunc != null) {
       onErrorFunc(bloc, error, stackTrace);

@@ -7,8 +7,7 @@ part 'red_event.dart';
 part 'red_state.dart';
 
 class RedBloc extends Bloc<RedEvent, RedState> {
-  @override
-  RedState get initialState => InitialRedState();
+  RedBloc() : super(InitialRedState());
 
   @override
   Stream<RedState> mapEventToState(RedEvent event) async* {
