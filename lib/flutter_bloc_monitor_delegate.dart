@@ -7,27 +7,30 @@ import 'model/event_info.dart';
 ///Delegate that handles all the storing of the user bloc events, transitions
 ///and errors
 class FlutterBlocMonitorDelegate extends BlocObserver {
-  FlutterBlocMonitorDelegate(
-      {this.onErrorFunc, this.onEventFunc, this.onTransitionFunc});
+  FlutterBlocMonitorDelegate({
+    this.onErrorFunc,
+    this.onEventFunc,
+    this.onTransitionFunc,
+  });
 
   static final List<EventInfo> events = [];
   static final List<TransitionInfo> transitions = [];
   static final List<ErrorInfo> errors = [];
 
   ///Callback to be executed when error occurs
-  final Function(Bloc bloc, Object error, StackTrace stackTrace) onErrorFunc;
+  final Function(Bloc bloc, Object error, StackTrace stackTrace)? onErrorFunc;
 
   ///Callback to be executed when event occurs
-  final Function(Bloc bloc, Object event) onEventFunc;
+  final Function(Bloc bloc, Object? event)? onEventFunc;
 
   ///Callback to be executed when transition occurs
-  final Function(Bloc bloc, Transition transition) onTransitionFunc;
+  final Function(Bloc bloc, Transition transition)? onTransitionFunc;
 
   @override
-  void onError(Cubit bloc, Object error, StackTrace stackTrace) {
+  void onError(Bloc bloc, Object error, StackTrace stackTrace) {
     super.onError(bloc, error, stackTrace);
     if (onErrorFunc != null) {
-      onErrorFunc(bloc, error, stackTrace);
+      onErrorFunc!(bloc, error, stackTrace);
     }
     errors.add(
       ErrorInfo(
@@ -40,10 +43,10 @@ class FlutterBlocMonitorDelegate extends BlocObserver {
   }
 
   @override
-  void onEvent(Bloc bloc, Object event) {
+  void onEvent(Bloc bloc, Object? event) {
     super.onEvent(bloc, event);
     if (onEventFunc != null) {
-      onEventFunc(bloc, event);
+      onEventFunc!(bloc, event);
     }
     events.add(
       EventInfo(
@@ -58,7 +61,7 @@ class FlutterBlocMonitorDelegate extends BlocObserver {
   void onTransition(Bloc bloc, Transition transition) {
     super.onTransition(bloc, transition);
     if (onTransitionFunc != null) {
-      onTransitionFunc(bloc, transition);
+      onTransitionFunc!(bloc, transition);
     }
     transitions.add(
       TransitionInfo(
