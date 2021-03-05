@@ -50,15 +50,19 @@ class SampleWidget extends StatelessWidget {
               builder: (_, state) => Container(
                 height: 100,
                 child: Center(
-                  child: RaisedButton(
+                  child: ElevatedButton(
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all<Color>(
+                        Colors.red,
+                      ),
+                    ),
                     child: Text(
                       'Add RedBloc Event',
                       style: TextStyle(
                         color: Colors.white,
                       ),
                     ),
-                    onPressed: () => context.bloc<RedBloc>().add(RedEvent1()),
-                    color: Colors.red,
+                    onPressed: () => context.read<RedBloc>().add(RedEvent1()),
                   ),
                 ),
               ),
@@ -67,15 +71,19 @@ class SampleWidget extends StatelessWidget {
               builder: (_, state) => Container(
                 height: 100,
                 child: Center(
-                  child: RaisedButton(
+                  child: ElevatedButton(
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all<Color>(
+                        Colors.blue,
+                      ),
+                    ),
                     child: Text(
                       'Add BlueBloc Event',
                       style: TextStyle(
                         color: Colors.white,
                       ),
                     ),
-                    onPressed: () => context.bloc<BlueBloc>().add(BlueEvent1()),
-                    color: Colors.blue,
+                    onPressed: () => context.read<BlueBloc>().add(BlueEvent1()),
                   ),
                 ),
               ),
@@ -84,7 +92,12 @@ class SampleWidget extends StatelessWidget {
               builder: (_, state) => Container(
                 height: 100,
                 child: Center(
-                  child: RaisedButton(
+                  child: ElevatedButton(
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all<Color>(
+                        Colors.green,
+                      ),
+                    ),
                     child: Text(
                       'Add GreenBloc Event',
                       style: TextStyle(
@@ -92,8 +105,7 @@ class SampleWidget extends StatelessWidget {
                       ),
                     ),
                     onPressed: () =>
-                        context.bloc<GreenBloc>().add(GreenEvent1()),
-                    color: Colors.green,
+                        context.read<GreenBloc>().add(GreenEvent1()),
                   ),
                 ),
               ),
@@ -101,8 +113,12 @@ class SampleWidget extends StatelessWidget {
             SizedBox(height: 30),
             Container(
               height: 100,
-              child: RaisedButton(
-                color: Theme.of(context).primaryColor,
+              child: ElevatedButton(
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all<Color>(
+                    Theme.of(context).primaryColor,
+                  ),
+                ),
                 child: Text('See Bloc Monitor Page'),
                 onPressed: () => Navigator.of(context).push(
                   MaterialPageRoute(
