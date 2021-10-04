@@ -1,3 +1,11 @@
+## [2.0.0+1]
+
+Added license
+
+## [2.0.0]
+
+Fully migrated to null safe and update dependencies
+
 ## [2.0.0-nullsafety.0]
 
 Migrating to null safe
