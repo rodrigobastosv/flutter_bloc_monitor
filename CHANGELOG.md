@@ -1,3 +1,7 @@
+## [2.0.0+2]
+
+Formatting code
+
 ## [2.0.0+1]
 
 Added license

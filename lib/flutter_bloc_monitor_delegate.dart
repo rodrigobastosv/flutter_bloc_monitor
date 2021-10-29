@@ -18,7 +18,8 @@ class FlutterBlocMonitorDelegate extends BlocObserver {
   static final List<ErrorInfo> errors = [];
 
   ///Callback to be executed when error occurs
-  final Function(BlocBase bloc, Object error, StackTrace stackTrace)? onErrorFunc;
+  final Function(BlocBase bloc, Object error, StackTrace stackTrace)?
+      onErrorFunc;
 
   ///Callback to be executed when event occurs
   final Function(Bloc bloc, Object? event)? onEventFunc;
